@@ -54,7 +54,10 @@
             display: inline-block;
             margin: 0 25px;
         }
-      
+		#map {
+			border: 8px solid beige;
+			display: block;
+		}    
         
     </style>
 </head>
@@ -64,7 +67,7 @@
     <h1>A Darkened Globe</h1>
     <h2>The World at Night, or a Preview of What's to Come?</h2>
     <p>Reading this brings a rush of memories flooding back from my first year at UK — we had to read Pickles’s book in its entirety for our Geographic Thought seminar. Those nightmares aside (it’s not terribly well written, from what I recall), what immediately jumps out is the presentation of the Cartographic Gaze as something which is disembodied, autonomous, and yet has agency. Mapmakers are tricksters of sorts who build the Gods eye view — the gaze’s transcendental positioning — into the map. Although it is an illusion because the political intent of maps is the product of human agency. Human agents, with their very embodied and politicized gazes have used maps to render and make legible a world they know the contours of intimately and over which they can exercise power. And that power is amplified by the fact that subjects over whom it is exercised can never fully identify who has seized them — so the story goes. But the problem, of course, is the mapmaker-trickster exercises power over the world as they have conceived it — which can be undermined or subverted by the very people who the map purports to entrap and make subjects. Indeed, the problem is the God eye view can never fully capture the relationship between the empowered and disempowered (yes, that is a terrible simplification). That is the Cartographic Gaze is not always self-reflexive, and by conceiving its own vision as all-encompassing it fails to grasp its blind spots — blind spots that are not on the map. Or, what more simply put, the Cartographic Gaze, assuming it is the product of someone or some entity’s consciousness, and is therefore situated and embodied and partial (which I’m guessing Haraway would endorse). Also, too much Foucault and an unhealthy preoccupation with the good old panopticon.</p>
-    <img src="images/world2.png" alt="world map">
+    <img id='map' src="images/world2.png" alt="world map">
 <!--change hyperlink to redirect to BaconIpsum-->
     <p>paragraph with link: <a href="https://baconipsum.com/">BaconIpsum</a> dolor sit amet, consectetur adipiscing elit. Duis urna magna, maximus nec laoreet sit amet, dictum ultricies nibh. Ut id auctor lacus. Nam a dolor et justo luctus luctus. Duis a elit eget risus dictum vehicula id eu elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed sed enim nisl.</p>
     <ul>
@@ -92,7 +95,7 @@
             this.style.width = '400px';
         })
         var newListItem = document.createElement('li');
-        newListItem.innterHTML = "list item 4";
+        newListItem.innerHTML = "list item 4";
         document.querySelector('ul').appendChild(newListItem);
         
     </script>
