@@ -3,7 +3,7 @@
 
 <head>
     <meta charset=utf-8 />
-    <title>Lab 03 Starter Template</title>
+    <title>The Bluegrass Triangle</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 
     <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
@@ -44,7 +44,7 @@
             font-size: 1em;
             color: #001323;
         }
-        /* Additional style rules go here! */
+   
     </style>
 </head>
 
@@ -59,11 +59,11 @@
     <footer>
         <p>Map authored by Chris Van Dyke</p>
         <p>Data Sources: Google, U.S. Census Bureau</p>
-        <p>Until now, the Bluegrass Triangle has received little scrutiny, perhaps because most sane people have assiduously steered clear of the region for more hospitable surroundings. Given this lack of contemporary scholarship, Ellen Churchill Semple remains the definitive authority on its pre-1903 history (which, given that the march of history was effectively arrested within the state sometime around 1904, her narrative will suffice). 
+        <p>Until now, the Bluegrass Triangle has received little scrutiny, perhaps because most sane people have assiduously steered clear of the region for more hospitable surroundings. Given this lack of contemporary scholarship, Ellen Churchill Semple remains the definitive authority on its pre-1903 history (which, given that the march of history was effectively arrested within the state sometime around 1904, her narrative will suffice).</p>
             
-        Her story unfolds thusly: “Wedged in between the Confederacy and the Union, Kentucky stretched its great length east and west from the Appalachians to the Mississippi across the very threshold of the South. Traversing its territory, the Mississippi, Tennessee, and Cumberland rivers opened up parallel avenues for an invading army into the heart of the Confederacy, while Cumberland Gap and the great intermontane valley of East Tennessee afforded a protected highway from the borders of the Bluegrass country to northern Georgia. Kentucky therefore throughout its length presented a strategic area, which was of paramount importance to the South, moreover, because the Ohio River along its northern border, bridges and almost fordless, presented the one strong defensible line in the Mississippi valley. Hence both sides made a dash for the possession of the state, invaded its boundaries in spite of legislative proclamation, and forced it from its neutrality. The territory of Kentucky was added to the area of the Union, but the flower of its manhood marched across the border into Tennessee to join the standard of the South.” 
+        <p>Her story unfolds thusly: "Wedged in between the Confederacy and the Union, Kentucky stretched its great length east and west from the Appalachians to the Mississippi across the very threshold of the South. Traversing its territory, the Mississippi, Tennessee, and Cumberland rivers opened up parallel avenues for an invading army into the heart of the Confederacy, while Cumberland Gap and the great intermontane valley of East Tennessee afforded a protected highway from the borders of the Bluegrass country to northern Georgia. Kentucky therefore throughout its length presented a strategic area, which was of paramount importance to the South, moreover, because the Ohio River along its northern border, bridges and almost fordless, presented the one strong defensible line in the Mississippi valley. Hence both sides made a dash for the possession of the state, invaded its boundaries in spite of legislative proclamation, and forced it from its neutrality. The territory of Kentucky was added to the area of the Union, but the flower of its manhood marched across the border into Tennessee to join the standard of the South."</p>
             
-        The swift departure of the flower of the state’s manhood occurred predominantly from within the Bluegrass Triangle, leaving an aperture, curiously shaped, in the heart of the Kentucky. Its legacy will be forever branded on the landscape, an unasked-for fate that continues to haunt our collective souls, which have now started the act of bleeding into one.   
+        <p>The swift departure of the flower of the state’s manhood occurred predominantly from within the Bluegrass Triangle, leaving an aperture, curiously shaped, in the heart of the Kentucky. Its legacy will be forever branded on the landscape, an unasked-for fate that continues to haunt our collective souls, which have now started the act of bleeding into one.   
         </p>
     </footer>
 
@@ -105,7 +105,7 @@
         var city3Pop = 40956
         var city3Capital = false;
        
-        var totalPop = (city1Pop + city2Pop + city3Pop)
+        var totalPop = city1Pop + city2Pop + city3Pop;
         console.log("The total population of these cities is", totalPop)
         
         var averagePop = totalPop/3
