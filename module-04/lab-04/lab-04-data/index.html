@@ -80,21 +80,32 @@
         
         // begin writing/editing Lab 04 code here
         
+var cities = ["Missoula", "Helena", "Bozeman"];
 
-//        for(/* add code here */) {
-//            
-//            var popup = "<b>"+/* add code here */+"</b><br>"
-//                            +"<b>population</b>: "+/* add code here */;
-//
-//            if(/* add code here */) {
-//               
-//                popup += "<br>Is the capital city."; 
-//                
-//            } 
-//            
-//            L.marker(/* add code here */).addTo(map)
-//                .bindPopup(popup);
-//        }
+var cityCoords = [
+    [46.8787, -113.9966],
+    [46.5884, -112.0245],
+    [45.6770, -111.0429]
+];
+        
+var cityPops = [69122, 29596, 39860];
+     
+var cityCaptial = [false, true, false];
+
+       for(var i = 0; i <cities.length; i++) {
+            
+            var popup = "<b>"+/* add code here */+"</b><br>"
+                            +"<b>population</b>: "+/* add code here */;
+
+            if(cityCapital === true) {
+               
+                popup += "<br>Is the capital city."; 
+                
+            } 
+            
+            L.marker(/* add code here */).addTo(map)
+                .bindPopup(popup);
+        }
         
         // end writing/editing Lab 04 code here
         
