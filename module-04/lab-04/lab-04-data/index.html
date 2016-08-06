@@ -92,10 +92,10 @@ var cityPops = [69122, 29596, 39860];
      
 var cityCaptial = [false, true, false];
 
-       for(var i = 0; i <cities.length; i++) {
+       for(var i = 0; i < cities.length; i++) {
             
-            var popup = "<b>"+/* add code here */+"</b><br>"
-                            +"<b>population</b>: "+/* add code here */;
+            var popup = "<b>"+cities.length+/"</b><br>"
+                            +"<b>population</b>: "+population.length/;
 
             if(cityCapital === true) {
                
@@ -103,7 +103,7 @@ var cityCaptial = [false, true, false];
                 
             } 
             
-            L.marker(/* add code here */).addTo(map)
+            L.marker(cities.length).addTo(map)
                 .bindPopup(popup);
         }
         
