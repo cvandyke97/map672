@@ -69,7 +69,7 @@
         var targetDiv = 'map';
 
         var options = {
-            center: [46.0038, -112.5348],
+            center: [46.5884, -112.0245],
             zoom: 8
         }
         map = L.map(targetDiv, options);
@@ -90,16 +90,17 @@ var cityCoords = [
         
 var cityPops = [69122, 29596, 39860];
      
-var cityCaptial = [false, true, false];
+var cityCapital = [false, true, false];
         
        for(var i = 0; i < cities.length; i++) {
             
             var popup = "<b>"+cities[i]+"</b><br>"
                             +"<b>population</b>: "+cityPops[i];
 
-            if(cityCapital[i] === true) {
+            if(cityCapital === true) {
                
                 popup += "<br>Is the capital city."; 
+                
                 
             } 
             
