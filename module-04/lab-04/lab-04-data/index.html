@@ -95,12 +95,11 @@ var cityCapital = [false, true, false];
        for(var i = 0; i < cities.length; i++) {
             
             var popup = "<b>"+cities[i]+"</b><br>"
-                            +"<b>population</b>: "+cityPops[i];
+                            +"<b>Population</b>: "+cityPops[i];
 
-            if(cityCapital === true) {
+            if(cityCapital[i] === true) {
                
-                popup += "<br>Is the capital city."; 
-                
+                popup += "<br>Is the capital city.";            
                 
             } 
             
