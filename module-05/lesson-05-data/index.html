@@ -25,6 +25,78 @@ helloMap(); //this statement calls or invokes the helloMap() function!
 function helloMap() {
     console.log("Hello Map");
 }
+    
+var helloMap = function() {
+    console.log("Hello Map");
+};
+    
+    helloMap();
+    
+helloMap();  //will throw an error
+
+var helloMap = function() {
+    console.log("Hello Map");
+ };
+
+function outerFunction(message) {
+    console.log(message);
+    var innerFunction = function(message){
+        console.log(message);
+    };
+    innerFunction("I'm inside!");
+}
+outerFunction("I'm outside!");
+    
+function saySomething(message){ //function signature accepts information as a "parameter"
+    console.log(message);
+}
+
+saySomething("Hello Map"); //function is called, passing an "argument" with it
+    
+function saySomething(message) {
+    console.log(message);
+}
+
+saySomething("Hello Map");
+saySomething("Please enter the address you'd like to search for.");
+    
+function saySomething(message) {
+    console.log(message);
+}
+
+var firstMessage = "Hello Map";
+saySomething(firstMessage);
+    
+var secondMessage = "Please enter the address you'd like to find.";
+saySomething(secondMessage);
+    
+function saySomething(message) {
+    console.log(message);
+}
+
+var message = "Hello Map";
+saySomething(message);
+
+message = "Please enter the address you'd like to search for."
+saySomething(message);
+    
+function calcAreaRect (width,height) {
+    var area = width * height;
+    console.log(area);
+}
+    
+calcAreaRect(40,30);
+    
+function calcAreaRect(width,height){
+    var area = width * height;
+    console.log(area);
+}  
+    
+var width = 40
+var height = 30;
+calcAreaRect(width,height);
+    
+    
 </script>
     
 </body>
