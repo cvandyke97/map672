@@ -73,8 +73,8 @@
     
     // map options
     var options = {
-        center: [20,-20],
-        zoom: 2
+        center: [32.2217, -110.9265],
+        zoom: 3
     }
     
     // creates the Leaflet map
@@ -91,38 +91,55 @@
     map.addLayer(tiles);
     
     var cities = ["Tucson", "Calgary", "Sarasota"]
+    
     var cityCoords = [
         [32.2217, -110.9265],
         [51.0486, -114.0708],
         [27.3364, -82.5307]
     ];
     var cityPops = [526116, 1097000, 53326];
-    var cityAreas = [226.7, 318.6, 25.93
-    
-        
+   
+    var cityAreas = [226.7, 318.6, 25.93];
+      
     var button = document.getElementById("map-cities");
     
     button.addEventListener("click", function() {
          
         var units = prompt('Enter the units for calculating density', 'Enter "miles" or "km"');
         
-        console.log(units);
+        mapCities(units);
         
-        // call a function named mapCities, and send the units variable as an argument
+    });
+    
+    function mapCities (units) {
+                   
+        for(var i = 0; i < cities.length; i++) {
+            
+            var density = calcPopDensity(cityPops[i], cityAreas[i], units);
+            
+            var popup = "<b>" +cities[i] + "</b><br>" + 
+                "<b>Density </b>: "+density.toLocaleString() + " People Per Square " + units
+            
+            L.marker(cityCoords[i])
+                .addTo(map)
+                .bindPopup(popup);
+            
+        }        
         
-    }); // addEventListener callback function ends here
+    }
     
+    function calcPopDensity(pop, area, units) {
+        
+        if(units == 'miles') {
+            var density = pop/area;
+        } else if (units == 'km') {
+            var density = pop/(are * 2.58999);
+        } 
+        
+        return density;
+    }
     
-    // write a function here named mapCities so that it accepts units as a parameter
-    
-    
-    // write a function named calcPopDensity here so that it accepts a single city's
-    // population, area, and the value for units determined by the user
-
-    
-    
-    
-    
+  
 
 </script>
     
