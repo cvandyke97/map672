@@ -118,7 +118,7 @@
             var density = calcPopDensity(cityPops[i], cityAreas[i], units);
             
             var popup = "<b>" +cities[i] + "</b><br>" + 
-                "<b>Density </b>: "+density.toLocaleString() + " People Per Square " + units
+                "<b>Density </b>: "+density.toLocaleString() + " people per square " + units
             
             L.marker(cityCoords[i])
                 .addTo(map)
