@@ -15,8 +15,8 @@
         body {
             margin: 0;
             padding: 0;
-            background: whitesmoke;
-            font-family: Lato, sans-serif;
+            background: seashell;
+            font-family: Impact, sans-serif;
             color: #0D0000;
         }
         header {
@@ -41,15 +41,17 @@
             width: 80%;
         }
         p {
+            font-family: Lucida Sans Unicode, sans-serif;
             font-size: 1em;
+            text-align: justify;
             color: #001323;
         }
         button {
+            font-family: Impact, sans-serif;
             font-size: 1.2em;
             margin-left: 10%;
         }
-        /* Additional style rules go here! */
-        
+       
 
     </style>
 </head>
@@ -133,7 +135,7 @@
         if(units == 'miles') {
             var density = pop/area;
         } else if (units == 'km') {
-            var density = pop/(are * 2.58999);
+            var density = pop/(area * 2.58999);
         } 
         
         return density;
