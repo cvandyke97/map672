@@ -11,9 +11,198 @@
 
 
 <script>
-/* JavaScript code goes here! */
+var myObject = {};
+console.log(myObject);
 
+var iguana = {
+    name: 'Jack',
+    weight: 4.2, 
+    age: 8,
+    eyes: 'dreamy',
+    questForWorldDomination: true
+}
+console.log(iguana);
+    
+var iguana = { 
+    questForWorldDomination: true,  
+    age: 8, 
+    eyes: "dreamy",
+    name: "Jack", 
+    weight: 4.2
+}
+console.log(iguana);
 
+var iguana = { 
+    questForWorldDomination: true,  
+    age: 8, 
+    eyes: "dreamy",
+    name: "Jack", 
+    weight: 4.2,
+    toolkit: {
+        conquestFlag: 'red',
+        surrenderFlag: 'white',
+        food: true,
+        music: "Phish",
+        coolSunGlasses: 8
+    }
+}
+console.log(iguana);
+
+console.log(iguana.name);
+console.log(iguana.weight);
+console.log(iguana.toolkit.music);
+console.log(iguana['name']);
+console.log(iguana['weight']);
+console.log(iguana['toolkit']['music']);
+console.log(iguana['toolkit'].coolSunGlasses);
+    
+iguana.weight = 5.2; //modifying property values with dot notation
+iguana.age = 9;
+    
+console.log(iguana.weight);
+console.log(iguana.age);
+    
+iguana['weight'] = 6.1; //modifying property values with bracket notation
+iguana['age'] = 10;
+    
+console.log(iguana.weight);
+console.log(iguana.age);
+
+console.log(iguana);
+iguana.color = 'green'; //adding new property to object
+iguana.madGenius = true;
+
+console.log(iguana);
+    
+iguana['color'] = 'purple';
+iguana['unlovedAsBaby'] = true;
+
+console.log(iguana);
+    
+var iguana = { 
+    name: "Jack", 
+    weight: 4.2,
+    age: 8, 
+    eyes: "dreamy",
+    questForWorldDomination: true 
+}
+
+for(var key in iguana) {
+    console.log(key);
+}
+    
+for(var key in iguana) {
+    console.log(iguana[key]);
+}
+    
+for(var key in iguana) {
+    console.log(key, iguana[key]);
+}
+
+var iguana = { 
+    name: "Jack", 
+    weight: 4.2, 
+    age: 8, 
+    eyes: "dreamy",
+    questForWorldDomination: true, 
+    greeting: function() {
+        console.log('Hello. I am your new overlord.');
+    }
+}
+
+iguana.greeting();
+
+var iguana = { 
+       name: "Jack", 
+    weight: 4.2, 
+    age: 8, 
+    eyes: "dreamy",
+    questForWorldDomination: true, 
+    greeting: function(message) {
+        console.log(message);
+    }
+}
+
+iguana.greeting('Howdy there!');
+    iguana.greeting('I am your new overlord');
+    
+var iguana = { 
+    name: "Jack", 
+    weight: 4.2, // kilos
+    length: 1.5, // meters
+    age: 8, 
+    eyes: "dreamy",
+    questForWorldDomination: true, 
+    calculateBMI: function(w,l) {
+        return w/(l*l);
+    }
+}
+var result = iguana.calculateBMI(4.2,1.5);
+console.log(result);
+
+var result = iguana.calculateBMI(iguana.weight, iguana.length);
+console.log (result);
+
+var iguana = { 
+    name: "Jack", 
+    weight: 4.2, // kilos
+    length: 1.5, // meters
+    age: 8, 
+    eyes: "dreamy",
+    questForWorldDomination: true,
+    calculateBMI: function() {
+        var w = this.weight;
+        var l = this.length;
+        return w/(l*l); 
+    }
+}
+var result = iguana.calculateBMI();
+console.log(result);
+    
+var iguana = { 
+    name: "Jack", 
+    weight: 4.2, 
+    age: 8, 
+    eyes: "dreamy",
+    questForWorldDomination: true, 
+    invasionPlans: function(inData) {
+        console.log(inData)
+    }
+}
+
+var lexData = {
+    lat: 38.23,
+    lon: -89.21,
+    name: 'Lexington',
+    pop: 821325
+}
+iguana.invasionPlans(lexData);
+
+var cityName = 'Lexington';
+var cityNameCaps = cityName.toUpperCase();
+console.log(cityNameCaps);
+
+var cityName = 'Lexington';
+console.log(cityName.charAt(4));
+
+console.log(cityName.indexOf('x'));
+    
+var pop = 1200000;
+var area = 683.24;
+var density = pop/area;
+
+console.log(density);
+
+var output = density.toLocaleString(); //formats number as a string type
+console.log(output);
+
+var cities = ['Lexington', 'Bowling Green'];
+console.log(cities);
+cities.push('Frankfort');
+console.log(cities);
+cities.pop();
+console.log(cities);
+    
 </script>
     
 </body>
