@@ -118,21 +118,32 @@ var cities = [city1, city2, city3];
         
         for(var i = 0; i < cities.length; i++) {
            
-            var props = cities[i].properties;
+            var props = cities[i].properties; 
             
-            var popup =  "<div class='"+colorClass+"'><b>"+city+"</b><br>"+ "<b>Population</b>:                 "+pop.toLocaleString()+"<div>";
+            function buildPopup(city, pop, state) {
+                return  "<div class='"+colorClass+"'><b>"+city+"</b><br>"+ "<b>Population</b>: "+pop.toLocaleString()+"<div>";
+            }
             
                  L.marker(props.coordinates)
                 .addTo(map)
-                .bindPopup(popup);
-            
-            
-            console.log(cities[i].properties.coordinates);
-        }
+                .bindPopup(buildPopup);
 
+        }
         
      function buildPopup (city, pop, state) {
         
+        if(name == "Louisville") {
+            var state = "KY"
+        }  
+        if(name == "Tucson") {
+            var state = "AZ"
+        }
+        if(name == "Sarasota") {
+            var state = "FL"
+        }
+         
+         return state;
+            
         if(state == "KY") {
             var colorClass = "kentucky-blue";
         }
@@ -141,9 +152,10 @@ var cities = [city1, city2, city3];
         if(state == "FL") {
             var colorClass = "florida-green";
         }
-        }
-
      }
+        return colorClass;
+       
+  }
           
     </script>
     
