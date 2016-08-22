@@ -3,7 +3,7 @@
 
 <head>
     <meta charset=utf-8 />
-    <title>Lab 06 Starter Template</title>
+    <title>Ghost Cities</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 
     <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
@@ -87,49 +87,56 @@
         
         // Begin writing/modifying code for Lab 06 here
         
-var city1 = {
-    name: "Louisville",
-    properties: {
-        coordinates:[38.25, -85.7667],
-        population: 756832,
-        state: "KY"
-        }
-  }      
+        var city1 = {
+            name: "Louisville",
+            properties: {
+                coordinates:[38.25, -85.7667],
+                population: 756832,
+                state: "KY"
+                }
+          }      
 
-var city2 = {
-    name: "Tucson",
-    properties: {
-        coordinates: [32.2217, -110.9265],
-        population: 526116,
-        state: "AZ"
-    }
-  }
+        var city2 = {
+            name: "Tucson",
+            properties: {
+                coordinates: [32.2217, -110.9265],
+                population: 526116,
+                state: "AZ"
+            }
+          }
+
+        var city3 = {
+            name: "Sarasota",
+            properties: {
+                coordinates:[27.3364, -82.5307],
+                population: 53326,
+                state: "FL"
+            }
+        }
         
-var city3 = {
-    name: "Sarasota",
-    properties: {
-        coordinates:[27.3364, -82.5307],
-        population: 53326,
-        state: "FL"
-    }
-}
-        
-var cities = [city1, city2, city3];
+        var cities = [city1, city2, city3];
         
         for(var i = 0; i < cities.length; i++) {
+            
+            console.log(cities[i]); // access to each entire city object
            
             var props = cities[i].properties; 
             
-            var popup = bindPopup.Popup(city, pop, state); //I've tried a bunch of different possibilities for calling the function, and you would think I'd hit upon something by chance, but no luck. Of course, if the function is not constructed correctly, it probably doesn't matter! This most recent effort is a variant on what you mentioned in your email... 
+            console.log(props); // access to each city object's properties
             
-            }
-        
-                 L.marker(props.coordinates)
+            console.log(props.coordinates) // access to the properties object's properties
+            
+            var popup = buildPopup(cities[i].name, props.population, props.state); 
+                    
+            L.marker(props.coordinates)
                 .addTo(map)
-                .bindPopup(Popup);
+                .bindPopup(popup);
+            
+        } // end for loop
+
 
         
-     function buildPopup (city, pop, state) {
+     function buildPopup(city, pop, state) {
         
         if(state == "KY") {
             var colorClass = "kentucky-blue";
@@ -141,17 +148,8 @@ var cities = [city1, city2, city3];
             var colorClass = "florida-green";
         }
          
-        if(name == "Louisville") {
-            var state = "KY"
-        }  
-        if(name == "Tucson") {
-            var state = "AZ"
-        }
-        if(name == "Sarasota") {
-            var state = "FL"
-        }
-         
-        return "<div class='"+colorClass+"'><b>"+city+"</b><br>"+"<b>Population</b>: "+pop.toLocaleString()+"<div>";
+        return "<div class='"+colorClass+"'><b>"+city+
+            "</b><br>"+"<b>Population</b>: "+pop.toLocaleString()+"<div>";
        
   }
           
