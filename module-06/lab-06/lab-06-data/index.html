@@ -59,16 +59,16 @@
 
 <body>
     <header>
-        <h1>Map Title</h1>
-        <h2>Map Subtitle</h2>
+        <h1>Ghost Cities</h1>
+        <h2>If the Markers Don't Show Up, This Title is Apropos</h2>
     </header>
 
     <div id='map'></div>
 
     <footer>
-        <p>Map authored by YOUR NAME</p>
-        <p>Additional information about the data and map goes here.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis urna magna, maximus nec laoreet sit amet, dictum ultricies nibh. Ut id auctor lacus. Nam a dolor et justo luctus luctus. Duis a elit eget risus dictum vehicula id eu elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed sed enim nisl. Vestibulum commodo imperdiet lacus, sed facilisis erat placerat sit amet. Nulla consequat malesuada neque eget aliquet. Integer non convallis nisl, gravida ultrices ex. Fusce nec vestibulum elit. Sed elementum lectus ipsum, vulputate elementum ex laoreet a. Aenean eu ex varius, varius felis vitae, efficitur nulla. Quisque pretium laoreet ante, in sodales dui vehicula at. Mauris eu sem sapien.
+        <p>Map authored by Chris Van Dyke</p>
+        <p>Data Source: Google</p>
+        <p>A more comprehensive narrative will be forthcoming if I get this to work!
         </p>
     </footer>
 
@@ -120,29 +120,16 @@ var cities = [city1, city2, city3];
            
             var props = cities[i].properties; 
             
-            function buildPopup(city, pop, state) {
-                return  "<div class='"+colorClass+"'><b>"+city+"</b><br>"+ "<b>Population</b>: "+pop.toLocaleString()+"<div>";
-            }
+            var popup = buildPopup ("<div class='"+colorClass+"'><b>"+city+"</b><br>"+"<b>Population</b>: "+pop.toLocaleString()+"<div>");
             
+            }
+        
                  L.marker(props.coordinates)
                 .addTo(map)
-                .bindPopup(buildPopup);
+                .bindPopup(Popup);
 
-        }
         
      function buildPopup (city, pop, state) {
-        
-        if(name == "Louisville") {
-            var state = "KY"
-        }  
-        if(name == "Tucson") {
-            var state = "AZ"
-        }
-        if(name == "Sarasota") {
-            var state = "FL"
-        }
-         
-         return state;
             
         if(state == "KY") {
             var colorClass = "kentucky-blue";
@@ -153,7 +140,18 @@ var cities = [city1, city2, city3];
             var colorClass = "florida-green";
         }
      }
-        return colorClass;
+         
+        if(name == "Louisville") {
+            var state = "KY"
+        }  
+        if(name == "Tucson") {
+            var state = "AZ"
+        }
+        if(name == "Sarasota") {
+            var state = "FL"
+        }
+         
+        return "<div class='"+colorClass+"'><b>"+city+"</b><br>"+"<b>Population</b>: "+pop.toLocaleString()+"<div>";
        
   }
           
