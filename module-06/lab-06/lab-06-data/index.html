@@ -120,7 +120,7 @@ var cities = [city1, city2, city3];
            
             var props = cities[i].properties; 
             
-            var popup = buildPopup ("<div class='"+colorClass+"'><b>"+city+"</b><br>"+"<b>Population</b>: "+pop.toLocaleString()+"<div>");
+            var popup = buildPopup("<div class='"+colorClass+"'><b>"+city+"</b><br>"+"<b>Population</b>: "+pop.toLocaleString()+"<div>");
             
             }
         
@@ -130,16 +130,16 @@ var cities = [city1, city2, city3];
 
         
      function buildPopup (city, pop, state) {
-            
+        
         if(state == "KY") {
             var colorClass = "kentucky-blue";
         }
         if(state == "AZ") {
             var colorClass = "arizona-red";
+        }
         if(state == "FL") {
             var colorClass = "florida-green";
         }
-     }
          
         if(name == "Louisville") {
             var state = "KY"
