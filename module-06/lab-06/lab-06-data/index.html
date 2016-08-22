@@ -68,7 +68,7 @@
     <footer>
         <p>Map authored by Chris Van Dyke</p>
         <p>Data Source: Google</p>
-        <p>A more comprehensive narrative will be forthcoming if I get this to work!
+        <p>A more comprehensive narrative will be forthcoming if I get this to work! But no, sadly, I'm waving the white flag.
         </p>
     </footer>
 
@@ -120,7 +120,7 @@ var cities = [city1, city2, city3];
            
             var props = cities[i].properties; 
             
-            var popup = buildPopup("<div class='"+colorClass+"'><b>"+city+"</b><br>"+"<b>Population</b>: "+pop.toLocaleString()+"<div>");
+            var popup = bindPopup.Popup(city, pop, state); //I've tried a bunch of different possibilities for calling the function, and you would think I'd hit upon something by chance, but no luck. Of course, if the function is not constructed correctly, it probably doesn't matter! This most recent effort is a variant on what you mentioned in your email... 
             
             }
         
