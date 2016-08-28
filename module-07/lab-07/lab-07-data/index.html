@@ -82,33 +82,37 @@
     
     var redIguana = L.latLng(40.7718,-111.9124);
 
-        L.marker(redIguana, {
-            icon : L.icon({
+    L.marker(redIguana, {
+        icon : L.icon({
             iconUrl: 'red_iguana.png',
             iconSize: [40, 36]
         })
-            }).addTo(map);
+    }).addTo(map);
+    
+    L.marker(redIguana, {
+        icon : L.icon({
+            iconUrl: 'red_iguana.png',
+            iconSize: [40, 36]
+        })
+    }).addTo(map);
 
-       map.on('click', function(e){
+    var clickPosition;
+    
+    map.on('click', function(e){
 
-        var clickPosition = e.latlng; 
-           placeMarker(clickPosition)
+    // output is o.LatLng {lat: 40.863679665481676, lng: -114.57847595214842}
+        console.log(e.latlng);
+    clickPosition = e.latlng
 
 });
 
-        function placeMarker(clickPos) {
-            console.log(clickPos); // click coords value available here
-}
-        
-        var moveableMarker = L.marker(placeMarker, {
-            draggable: true
+    var moveableMarker = L.marker(clickPosition, {
+        draggable: true
     });
         moveableMarker.addTo(map);
-    
-    //var distance = redIguana.distanceTo(moveableMarker); 
-        //console.log(distance);
-                                   
-                  
+        
+        
+        
     </script>
     
 </body>
