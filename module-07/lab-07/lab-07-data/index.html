@@ -81,20 +81,29 @@
     map.addLayer(Esri_WorldStreetMap);
     
     var redIguana = L.latLng(40.7718,-111.9124);
-        
-    L.marker(redIguana, {
-        icon : L.icon({
+
+        L.marker(redIguana, {
+            icon : L.icon({
             iconUrl: 'red_iguana.png',
             iconSize: [40, 36]
         })
-    }).addTo(map);
+            }).addTo(map);
+
+        map.on('click', function(e){
+    // output is o.LatLng {lat: 40.863679665481676, lng: -114.57847595214842}
+            console.log(e.latlng);   
+
+});
         
-    map.on('click', function(e){
-        
-        // output is o.LatLng {lat: 40.863679665481676, lng: -114.57847595214842}  
-        console.log(e.latlng); 
-        
+    var markerLocation = L.latLng('click');
+    var moveableMarker = L.marker(markerLocation, {
+        draggable: true
     });
+        moveableMarker.addTo(map);
+    
+    //var distance = redIguana.distanceTo(moveableMarker); 
+        //console.log(distance);
+                                   
                   
     </script>
     
