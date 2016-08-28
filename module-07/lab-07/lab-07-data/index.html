@@ -89,15 +89,19 @@
         })
             }).addTo(map);
 
-        map.on('click', function(e){
-    // output is o.LatLng {lat: 40.863679665481676, lng: -114.57847595214842}
-            console.log(e.latlng);   
+       map.on('click', function(e){
+
+        var clickPosition = e.latlng; 
+           placeMarker(clickPosition)
 
 });
+
+        function placeMarker(clickPos) {
+            console.log(clickPos); // click coords value available here
+}
         
-    var markerLocation = L.latLng('click');
-    var moveableMarker = L.marker(markerLocation, {
-        draggable: true
+        var moveableMarker = L.marker(placeMarker, {
+            draggable: true
     });
         moveableMarker.addTo(map);
     

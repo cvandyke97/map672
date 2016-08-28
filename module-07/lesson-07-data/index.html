@@ -95,6 +95,7 @@
         
         L.marker([38.0297, -84.4947]).addTo(map);
         
+        //defining a layer group object
         var iguanaRestaurants = L.layerGroup();
         var redIguanaOptions = {
             color: 'red',
@@ -105,21 +106,29 @@
             fillColor: '#03f'
     };
 
+        //establishes a layer (circle) and passes three arugments to it -- location, the radius of the circle, and redIguanaOptions, which specifies color and fill color
         var redIguana = L.circle([40.7718,-111.9124], 400, redIguanaOptions);
             redIguana.color = 'red';
+        //adds redIguana to the layer group object
             redIguana.addTo(iguanaRestaurants);
+        //establishes a layer (circle) and passes three arugments to it -- location, the radius of the circle, and blueIguanaOptions, which specifies color and fill color
         var blueIguana = L.circle([40.7657, -111.8930], 300, blueIguanaOptions);
+        
             blueIguana.color = 'blue';
+        //adds blueIguana to the layer group object
             blueIguana.addTo(iguanaRestaurants);
+        //adds layer group to the map
             iguanaRestaurants.addTo(map);
 
         iguanaRestaurants.eachLayer(function(layer) {
+            //when the cursor hovers over a circle, the color and fill color change to yellow for each layer
             layer.on('mouseover', function(e) {
                 e.target.setStyle({
                     color: 'yellow',
                     fillColor: 'yellow'
             });
         });
+            //when the cursor is moved away from a circle, its original color properties reappear;    
             layer.on('mouseout', function(e) {
                 if(e.target.color == 'red') {
                     e.target.setStyle(redIguanaOptions);
