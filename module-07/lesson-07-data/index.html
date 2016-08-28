@@ -123,16 +123,19 @@
         iguanaRestaurants.eachLayer(function(layer) {
             //when the cursor hovers over a circle, the color and fill color change to yellow for each layer
             layer.on('mouseover', function(e) {
+            //establishes the color properties which are assigned to a circle when the cursor hovers over it
                 e.target.setStyle({
                     color: 'yellow',
                     fillColor: 'yellow'
             });
         });
             //when the cursor is moved away from a circle, its original color properties reappear;    
-            layer.on('mouseout', function(e) {
+            layer.on('mouseout', function(e) { 
+            //if the target (i.e., circle) is originally shaded red, this reshades the circle red after the cursor is taken off of it, following the style properties established by the variable redIguanaOptions
                 if(e.target.color == 'red') {
                     e.target.setStyle(redIguanaOptions);
-            }   else if (e.target.color == 'blue') {
+           //if the target (i.e., circle) is originally shaded blue, this reshades the circle blue after the cursor is taken off of it, following the style properties established by the variable blueIguanaOptions
+                }   else if (e.target.color == 'blue') {
                     e.target.setStyle(blueIguanaOptions);      
             }
         });
