@@ -52,16 +52,16 @@
 
 <body>
     <header>
-        <h1>Map Title</h1>
+        <h1>Distance to the Red Iguana</h1>
         <h2>Map Subtitle</h2>
     </header>
 
     <div id='map'></div>
 
     <footer>
-        <p>Map authored by YOUR NAME</p>
-        <p>Additional information about the data and map goes here.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis urna magna, maximus nec laoreet sit amet, dictum ultricies nibh. Ut id auctor lacus. Nam a dolor et justo luctus luctus. Duis a elit eget risus dictum vehicula id eu elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed sed enim nisl. Vestibulum commodo imperdiet lacus, sed facilisis erat placerat sit amet. Nulla consequat malesuada neque eget aliquet. Integer non convallis nisl, gravida ultrices ex. Fusce nec vestibulum elit. Sed elementum lectus ipsum, vulputate elementum ex laoreet a. Aenean eu ex varius, varius felis vitae, efficitur nulla. Quisque pretium laoreet ante, in sodales dui vehicula at. Mauris eu sem sapien.
+        <p>Map authored by Chris Van Dyke</p>
+        <p>Although I probably shouldn't willingly admit responsibility</p>
+        <p>Ideally, users should be able to drag and position a marker on the map. Once the marker is set, a popup window should indicate the distance from the marker to the world-famous Red Iguana. Sadly, we do not live in an ideal world!
         </p>
     </footer>
 
@@ -104,18 +104,25 @@
     var moveableMarker = L.marker(clickPosition, {
         draggable: true
         })
-    moveableMarker.addTo(map) 
+    moveableMarker.addTo(map);
+    var distance = moveableMarker.distanceTo(redIguana);
     });
 
-    //var moveableMarker = L.marker(clickPosition, {
+    
+          
+   // moveableMarker.addTo(map).bindPopup("The distance to the Red Iguana is" + distance + "km.");
+    
+   // moveableMarker.addTo(map);  
+        
+        //var moveableMarker = L.marker(clickPosition, {
        // draggable: true
     //});
         
        // moveableMarker.addTo(map).bindPopup("The distance to the Red Iguana is" + distance + "km.");;
         
-  //  var distance = moveableMarker.distanceTo(redIguana);
+
     
-// marker.on('click', ) setPopupContent("The distance to the Red Iguana is" + distance + "km."))
+// marker.on('click', )setPopupContent("The distance to the Red Iguana is" + distance + "km."))
         
         
         
