@@ -99,20 +99,21 @@
     var clickPosition;
     
     map.on('click', function(e){
-
-    // output is o.LatLng {lat: 40.863679665481676, lng: -114.57847595214842}
         console.log(e.latlng);
     clickPosition = e.latlng
-
-});
-
     var moveableMarker = L.marker(clickPosition, {
         draggable: true
+        })
+    moveableMarker.addTo(map) 
     });
+
+    //var moveableMarker = L.marker(clickPosition, {
+       // draggable: true
+    //});
         
-        moveableMarker.addTo(map).bindPopup("The distance to the Red Iguana is" + distance + "km.");;
+       // moveableMarker.addTo(map).bindPopup("The distance to the Red Iguana is" + distance + "km.");;
         
-    var distance = moveableMarker.distanceTo(redIguana);
+  //  var distance = moveableMarker.distanceTo(redIguana);
     
 // marker.on('click', ) setPopupContent("The distance to the Red Iguana is" + distance + "km."))
         
