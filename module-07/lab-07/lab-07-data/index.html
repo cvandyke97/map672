@@ -109,9 +109,12 @@
     var moveableMarker = L.marker(clickPosition, {
         draggable: true
     });
-        moveableMarker.addTo(map);
+        
+        moveableMarker.addTo(map).bindPopup("The distance to the Red Iguana is" + distance + "km.");;
         
     var distance = moveableMarker.distanceTo(redIguana);
+    
+// marker.on('click', ) setPopupContent("The distance to the Red Iguana is" + distance + "km."))
         
         
         

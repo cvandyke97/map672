@@ -120,9 +120,9 @@
             blueIguana.addTo(iguanaRestaurants);
         //adds layer group to the map
             iguanaRestaurants.addTo(map);
-
+        //this is a method for iterating through each layer of the map
         iguanaRestaurants.eachLayer(function(layer) {
-            //when the cursor hovers over a circle, the color and fill color change to yellow for each layer
+            //the .on method references the layer object -- when the cursor hovers over a circle, the color and fill color change to yellow for each layer
             layer.on('mouseover', function(e) {
             //establishes the color properties which are assigned to a circle when the cursor hovers over it
                 e.target.setStyle({
