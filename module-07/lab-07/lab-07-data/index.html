@@ -53,7 +53,7 @@
 <body>
     <header>
         <h1>Distance to the Red Iguana</h1>
-        <h2>Map Subtitle</h2>
+        <h2>They Sent for Help!</h2>
     </header>
 
     <div id='map'></div>
@@ -101,29 +101,20 @@
     map.on('click', function(e){
         console.log(e.latlng);
     clickPosition = e.latlng
+    
     var moveableMarker = L.marker(clickPosition, {
         draggable: true
         })
-    moveableMarker.addTo(map);
-    var distance = moveableMarker.distanceTo(redIguana);
-    });
-
     
-          
-   // moveableMarker.addTo(map).bindPopup("The distance to the Red Iguana is" + distance + "km.");
+    var distance = clickPosition.distanceTo(redIguana)/1000;
+   
+        console.log(distance);
     
-   // moveableMarker.addTo(map);  
+        //moveableMarker.addTo(map).bindPopup("The distance to the Red Iguana is " + distance.toLocaleString() + " km."); -- this worked, in any case
+        new L.draggable(moveableMarker);
+        moveableMarker.on('click').setPopupContent("The distance to the Red Iguana is " + distance + " km.")
         
-        //var moveableMarker = L.marker(clickPosition, {
-       // draggable: true
-    //});
-        
-       // moveableMarker.addTo(map).bindPopup("The distance to the Red Iguana is" + distance + "km.");;
-        
-
-    
-// marker.on('click', )setPopupContent("The distance to the Red Iguana is" + distance + "km."))
-        
+    });  
         
         
     </script>
