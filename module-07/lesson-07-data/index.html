@@ -130,7 +130,7 @@
                     fillColor: 'yellow'
             });
         });
-            //when the cursor is moved away from a circle, its original color properties reappear;    
+            //the .on method references the layer object, when the cursor is moved away from a circle, its original color properties reappear;    
             layer.on('mouseout', function(e) { 
             //if the target (i.e., circle) is originally shaded red, this reshades the circle red after the cursor is taken off of it, following the style properties established by the variable redIguanaOptions
                 if(e.target.color == 'red') {
