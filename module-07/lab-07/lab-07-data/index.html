@@ -88,31 +88,31 @@
             iconSize: [40, 36]
         })
     }).addTo(map);
-    
-    L.marker(redIguana, {
-        icon : L.icon({
-            iconUrl: 'red_iguana.png',
-            iconSize: [40, 36]
-        })
-    }).addTo(map);
+
 
     var clickPosition;
     
     map.on('click', function(e){
-        console.log(e.latlng);
-    clickPosition = e.latlng
+        
+        clickPosition = e.latlng
     
-    var moveableMarker = L.marker(clickPosition, {
-        draggable: true
-        })
+        // create the marker and add it to the map, making it draggable
+        var moveableMarker = L.marker(clickPosition, {
+            draggable: true
+        }).addTo(map);
     
-    var distance = clickPosition.distanceTo(redIguana)/1000;
+        // calculate distance between new point and red iguana
+        var distance = clickPosition.distanceTo(redIguana)/1000;
    
-        console.log(distance);
-    
-        //moveableMarker.addTo(map).bindPopup("The distance to the Red Iguana is " + distance.toLocaleString() + " km."); -- this worked, in any case
-        new L.draggable(moveableMarker);
-        moveableMarker.on('click').setPopupContent("The distance to the Red Iguana is " + distance + " km.")
+        // bind a popup to the marker with the distance info
+        moveableMarker.bindPopup("The distance to the Red Iguana is " + distance.toLocaleString()  + " km.").openPopup();
+        
+        // event listener for when marker is done being dragged,
+        // recalculate distance and update popup content
+        moveableMarker.on('dragend', function(evt) {
+            distance = redIguana.distanceTo(evt.target._latlng)/1000;
+            moveableMarker.setPopupContent("The distance to the Red Iguana is " + distance.toLocaleString() + " km.").openPopup();
+        })
         
     });  
         
