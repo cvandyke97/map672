@@ -61,97 +61,16 @@
     </footer>
 
     <script>
-    
-        var places = {
-            "type": "FeatureCollection",
-            "features": [
-                {
-                    "type": "Feature",
-                    "properties": {
-                    "marker‐color": "#7e7e7e",
-                    "marker‐size": "medium",
-                    "marker‐symbol": "",
-                    "name": "Tallinn",
-                    "size": 159
-                },
-                    "geometry": {
-                    "type": "Point",
-                    "coordinates": [
-                    24.7357177734375,
-                    59.43390314475794
-                ]
-            }
-        },
-{
-                    "type": "Feature",
-                    "properties": {
-                    "marker‐color": "#7e7e7e",
-                    "marker‐size": "medium",
-                    "marker‐symbol": "",
-                    "name": "Haapsalu",
-                    "size": 11
-                },
-                    "geometry": {
-                    "type": "Point",
-                    "coordinates": [
-                    23.543701171875,
-                    58.945758027716465
-                ]
-            }
-        },
-{
-                    "type": "Feature",
-                    "properties": {
-                    "marker‐color": "#7e7e7e",
-                    "marker‐size": "medium",
-                    "marker‐symbol": "",
-                    "name": "Parnu",
-                    "size": 32
-                },
-                    "geometry": {
-                    "type": "Point",
-                    "coordinates": [
-                    24.510498046875,
-                    58.38011855064708
-                ]
-            }
-        },
-{
-                    "type": "Feature",
-                        "properties": {
-                    "marker‐color": "#7e7e7e",
-                    "marker‐size": "medium",
-                    "marker‐symbol": "",
-                    "name": "Tartu",
-                    "size": 39
-                 },
-                    "geometry": {
-                    "type": "Point",
-                    "coordinates": [
-                    26.728363037109375,
-                    58.37147760096145
-                ]
-            }
-        }
-    ]
-};
-   
          
         var map = L.map('map', {
-        center: [58.73, 25.67], // centered in Estonia
-        zoom: 7
+            center: [36, -94],
+            zoom: 7
         });
-        var Esri_WorldStreetMap =           L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+        
+        var tiles =                                                 L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
 	       attribution: 'Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012'
         }); 
-        
-        map.addLayer(Esri_WorldStreetMap);
-        
-        var placesLeaflet = L.geoJson(places, {
-            pointToLayer : function(feature, latlng) {
-                return L.circle(latlng, feature.properties.size * 100);
-            }
-        }).addTo(map);
+        tiles.addTo(map);
       
                   
     </script>
