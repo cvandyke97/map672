@@ -74,14 +74,19 @@
         tiles.addTo(map);
         
         L.geoJson(plants, {
-            pointToLayer: function(feature, latlng) {
+            pointToLayer: function(feature,latlng) {
                 return L.circleMarker(latlng, {
                     color: 'orange',
                     weight: 1,
-                    fillColor: 'yellow',
-                    fillOpacity: 1,
+                    fillColor: 'sky-blue',
+                    fillOpacity: .8,
                     radius: 2  
                 });
+            },
+            filter: function(feature, layer) {
+                if(feature.properties.fuel_source["Natural Gas"]){
+                    return feature;
+                }
             }
         }).addTo(map);
       
