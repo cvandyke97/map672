@@ -60,17 +60,24 @@
         <p>Additional information about the data and map goes here.</p>
     </footer>
 
+    <script src = "power-plants.js"></script>
     <script>
          
         var map = L.map('map', {
             center: [36, -94],
-            zoom: 7
+            zoom: 4
         });
         
         var tiles =                                                 L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
 	       attribution: 'Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012'
         }); 
         tiles.addTo(map);
+        
+        L.geoJson(plants, {
+            pointToLayer: function(feature, latlng) {
+                
+            }
+        }).addTo(map);
       
                   
     </script>
