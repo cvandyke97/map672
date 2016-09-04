@@ -90,7 +90,7 @@
               });   
           },
           onEachFeature: function(feature, layer) {
-              layer.bindPopup(feature.properties.plant_name + feature.properties.capacity_mw);
+              layer.bindPopup(feature.properties.plant_name + "<br>" + feature.properties.capacity_mw);
               layer.on('mouseover', function() {
                   layer.setStyle ({
                       fillColor: 'red'
