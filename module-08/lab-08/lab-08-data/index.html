@@ -60,7 +60,7 @@
         <p>Clicking on individual circles displays a popup which contains the power plant name and its power generating capacity.</p>
     </footer>
 
-    <script src="power-plants.js"></script>
+    <script src="power-plants.js"></script> <!--loading geoJson-->
     <script>
 
       var map = L.map('map', {
@@ -79,8 +79,8 @@
       plants.features.sort(function(a, b) {
         return b.properties.capacity_mw - a.properties.capacity_mw;
     });
-      L.geoJson(plants, {
-          pointToLayer: function(feature,latlng) {
+      L.geoJson(plants, { //invoking geoJason method to draw plants
+          pointToLayer: function(feature,latlng) { //using pointToLayer to create circle markers
               return L.circleMarker(latlng, {
                  color: '#00FFFF', //the next four lines establish the geometric and color properties of each circle
                  weight: 1,
@@ -109,7 +109,7 @@
                     return feature;
             }
         }
-      }).addTo(map);
+      }).addTo(map); //add plants to map
         
         //function for calculating radius to ensure correct web display
         function getRadius(area) {
