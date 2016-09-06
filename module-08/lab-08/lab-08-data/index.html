@@ -49,15 +49,15 @@
 
 <body>
     <header>
-        <h1>Map Title</h1>
-        <h2>Map Subtitle</h2>
+        <h1>Hydroelectric Plants in the United States</h1>
+        <h2>Fear Death By Water</h2>
     </header>
 
     <div id='map'></div>
 
     <footer>
-        <p>Map authored by YOUR NAME</p>
-        <p>Additional information about the data and map goes here.</p>
+        <p>Map authored by Chris Van Dyke</p>
+        <p>Clicking on individual circles displays a popup which contains the power plant name and its power generating capacity.</p>
     </footer>
 
     <script src="power-plants.js"></script>
@@ -82,26 +82,28 @@
       L.geoJson(plants, {
           pointToLayer: function(feature,latlng) {
               return L.circleMarker(latlng, {
-                 color: '#00FFFF',
+                 color: '#00FFFF', //the next four lines establish the geometric and color properties of each circle
                  weight: 1,
                  fillColor: '#0000FF',
                  fillOpacity: .8,
-                 radius: getRadius(feature.properties.capacity_mw)
+                 radius: getRadius(feature.properties.capacity_mw) //getRadius called; circle radius determined by the plant's power generating capacity
               });   
           },
+          //for each circle (i.e., power plant), a popup window is attached when a user clicks on it, displaying the dialogue indicated below
           onEachFeature: function(feature, layer) {
               layer.bindPopup("<b>" + feature.properties.plant_name + "</b><br>" + "Capacity: " + feature.properties.capacity_mw + " MW");
-              layer.on('mouseover', function() {
+              layer.on('mouseover', function() { //on mouseover, circle is shaded red
                   layer.setStyle ({
                       fillColor: 'red'
                   });
               });
-              layer.on('mouseout', function() {
+              layer.on('mouseout', function() { //returns symbol to original color upon mouseout
                   layer.setStyle ({
                       fillColor: '#0000FF'
                   });
               });
           },
+          //original geoJson filtered to show only hydroelectric plants
           filter: function(feature, layer) {
                 if(feature.properties.fuel_source.Hydro){
                     return feature;
@@ -109,6 +111,7 @@
         }
       }).addTo(map);
         
+        //function for calculating radius to ensure correct web display
         function getRadius(area) {
             var radius = Math.sqrt(area/Math.PI);
             return radius * .6;  
