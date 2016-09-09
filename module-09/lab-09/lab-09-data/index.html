@@ -79,8 +79,14 @@
     var commonStyles = {
         weight: 1,
         stroke: 1,
-        fillOpacity: .8
-}
+        fillOpacity: .75
+    }
+    
+    var sourcesLayers = {
+        "Coal": coalLayer,
+        "Solar": solarLayer,
+        "Hydro": hydroLayer
+    }
 
     var coalLayer = L.geoJson(plants, {
         pointToLayer: function(feature,latlng) {
@@ -100,6 +106,24 @@
     } 
 }).addTo(map);   
     
+    var solarLayer = L.geoJson(plants, {
+        pointToLayer: function(feature,latlng) {
+        return L.circleMarker(latlng, commonStyles);
+    },
+    filter: function(feature) {
+        if(feature.properties.fuel_source.Solar) {
+            return feature;
+        }
+    },
+    style: function(feature) {
+        return {
+            color: '#ff8c00',
+            fillColor: '#ffff00',
+            radius: getRadius(feature.properties.fuel_source.Solar)
+        } 
+    } 
+}).addTo(map);
+
     var hydroLayer = L.geoJson(plants, {
         pointToLayer: function(feature,latlng) {
         return L.circleMarker(latlng, commonStyles);
@@ -111,27 +135,9 @@
     },
     style: function(feature) {
         return {
-            color: '#1f78b4',
-            fillColor: '#1f78b4',
-            radius: getRadius(feature.properties.fuel_source.Hydro)
-        } 
-    } 
-}).addTo(map);
-
-    var windLayer = L.geoJson(plants, {
-        pointToLayer: function(feature,latlng) {
-        return L.circleMarker(latlng, commonStyles);
-    },
-    filter: function(feature) {
-        if(feature.properties.fuel_source["Wind"]) {
-            return feature;
-        }
-    },
-    style: function(feature) {
-        return {
-            color: '#a6cee3',
+            color: '#0000cd',
             fillColor: '#a6cee3',
-            radius: getRadius(feature.properties.fuel_source["Wind"])
+            radius: getRadius(feature.properties.fuel_source.Hydro)
         }
     }
 }).addTo(map);
@@ -140,7 +146,9 @@
                 var radius = Math.sqrt(area/Math.PI);
                 return radius * .6;  
     }
-                  
+      
+    L.control.layers(null, sourcesLayersLayers, {collapsed: false}).addTo(map);
+        
     </script>
     
 </body>
