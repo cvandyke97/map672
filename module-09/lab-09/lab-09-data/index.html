@@ -82,7 +82,7 @@
         fillOpacity: .75
     }
     
-    var powerSources = {
+    var powerLayers = {
         "Coal": coalLayer,
         "Solar": solarLayer,
         "Hydro": hydroLayer
@@ -147,7 +147,7 @@
                 return radius * .6;  
     }
       
-    L.controls.layers(null, powerSources).addTo(map);
+    L.control.layers(null, powerLayers).addTo(map);
         
     </script>
     
