@@ -82,8 +82,8 @@
         fillOpacity: .8
 }
 
- var coalLayer = L.geoJson(plants, {
-    pointToLayer: function(feature,latlng) {
+    var coalLayer = L.geoJson(plants, {
+        pointToLayer: function(feature,latlng) {
         return L.circleMarker(latlng, commonStyles);
     },
     filter: function(feature) {
@@ -100,8 +100,8 @@
     } 
 }).addTo(map);   
     
-var hydroLayer = L.geoJson(plants, {
-    pointToLayer: function(feature,latlng) {
+    var hydroLayer = L.geoJson(plants, {
+        pointToLayer: function(feature,latlng) {
         return L.circleMarker(latlng, commonStyles);
     },
     filter: function(feature) {
@@ -118,8 +118,8 @@ var hydroLayer = L.geoJson(plants, {
     } 
 }).addTo(map);
 
-var windLayer = L.geoJson(plants, {
-    pointToLayer: function(feature,latlng) {
+    var windLayer = L.geoJson(plants, {
+        pointToLayer: function(feature,latlng) {
         return L.circleMarker(latlng, commonStyles);
     },
     filter: function(feature) {
@@ -137,8 +137,8 @@ var windLayer = L.geoJson(plants, {
 }).addTo(map);
         
            function getRadius(area) {
-            var radius = Math.sqrt(area/Math.PI);
-            return radius * .6;  
+                var radius = Math.sqrt(area/Math.PI);
+                return radius * .6;  
     }
                   
     </script>
