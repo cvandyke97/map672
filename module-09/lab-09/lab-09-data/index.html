@@ -155,8 +155,8 @@
     map.on('click', function(e) {
         coalLayer.eachLayer(function(layer) {
     var distance = e.latlng.distanceTo(layer.getLatLng())/1000;
-
-        if(distance > 500) {
+       
+            if(distance > 500) {
             layer.setStyle({
                 stroke: false,
                 fill: false
@@ -165,7 +165,7 @@
             layer.setStyle({
                 stroke: true,
                 fill: true  
-            }); 
+            });
         } 
     });
      
@@ -185,7 +185,7 @@
         } 
     });
         
-    hydroLayer.eachLayer(function(layer) {
+        hydroLayer.eachLayer(function(layer) {
     var distance = e.latlng.distanceTo(layer.getLatLng())/1000;
 
         if(distance > 500) {
@@ -197,7 +197,7 @@
             layer.setStyle({
                 stroke: true,
                 fill: true  
-            }); 
+            });
         } 
     });
 });
