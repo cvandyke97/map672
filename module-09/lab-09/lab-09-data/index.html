@@ -81,12 +81,6 @@
         stroke: 1,
         fillOpacity: .75
     }
-    
-    var powerLayers = {
-        "Coal": coalLayer,
-        "Solar": solarLayer,
-        "Hydro": hydroLayer
-    }
 
     var coalLayer = L.geoJson(plants, {
         pointToLayer: function(feature,latlng) {
@@ -146,7 +140,13 @@
                 var radius = Math.sqrt(area/Math.PI);
                 return radius * .6;  
     }
-      
+     
+    var powerLayers = {
+        "<b style = 'color:#a9a9a9' >Coal</b>": coalLayer,
+        "<b style = 'color:#ff8c00' >Solar</b>": solarLayer,
+        "<b style = 'color:#a6cee3' >Hydro</b>": hydroLayer
+    }
+    
     L.control.layers(null, powerLayers).addTo(map);
         
     </script>
