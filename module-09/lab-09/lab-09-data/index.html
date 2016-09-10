@@ -87,10 +87,6 @@
         return L.circleMarker(latlng, commonStyles);
     },
         
-        onEachFeature: function(feature, layer) {
-        layer.bindPopup("<b>" + feature.properties.plant_name + "</b><br>" + feature.properties.fuel_source);
-        },
-        
     filter: function(feature) {
         if(feature.properties.fuel_source.Coal) {
             return feature;
@@ -109,9 +105,6 @@
         pointToLayer: function(feature,latlng) {
         return L.circleMarker(latlng, commonStyles);
     },
-        onEachFeature: function(feature, layer) {
-        layer.bindPopup("<b>" + feature.properties.plant_name + "</b><br>" + feature.properties.fuel_source);
-        },
     
     filter: function(feature) {
         if(feature.properties.fuel_source.Solar) {
@@ -130,10 +123,6 @@
     var hydroLayer = L.geoJson(plants, {
         pointToLayer: function(feature,latlng) {
         return L.circleMarker(latlng, commonStyles);
-    },
-        
-        onEachFeature: function(feature, layer) {
-        layer.bindPopup("<b>" + feature.properties.plant_name + "</b><br>" + feature.properties.fuel_source);
     },
         
     filter: function(feature) {
@@ -167,7 +156,23 @@
         coalLayer.eachLayer(function(layer) {
     var distance = e.latlng.distanceTo(layer.getLatLng())/1000;
 
-        if(distance < 500) {
+        if(distance > 500) {
+            layer.setStyle({
+                stroke: false,
+                fill: false
+            });  
+        } else {
+            layer.setStyle({
+                stroke: true,
+                fill: true  
+            }); 
+        } 
+    });
+     
+    solarLayer.eachLayer(function(layer) {
+    var distance = e.latlng.distanceTo(layer.getLatLng())/1000;
+
+        if(distance > 500) {
             layer.setStyle({
                 stroke: false,
                 fill: false
@@ -180,7 +185,23 @@
         } 
     });
         
+    hydroLayer.eachLayer(function(layer) {
+    var distance = e.latlng.distanceTo(layer.getLatLng())/1000;
+
+        if(distance > 500) {
+            layer.setStyle({
+                stroke: false,
+                fill: false
+            });  
+        } else {
+            layer.setStyle({
+                stroke: true,
+                fill: true  
+            }); 
+        } 
+    });
 });
+        
     </script>
     
 </body>
