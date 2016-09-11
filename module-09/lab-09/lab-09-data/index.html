@@ -166,7 +166,7 @@
                 stroke: true,
                 fill: true  
             });
-            layer.bindpop(feature.properties.plant_name);
+            layer.bindPopup("<b>" + layer.feature.properties.plant_name + "</b><br>" + "<b>" + "Fuel Source: " + "<b>" + layer.feature.properties.fuel_source + "<br>" + "Distance from Click: " + distance.toLocaleString() + "km");
         } 
     });
      
